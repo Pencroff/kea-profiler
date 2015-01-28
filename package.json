@@ -1,0 +1,37 @@
+{
+  "name": "kea-profiler",
+  "version": "0.1.0",
+  "description": "Profiler for node.js based on ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pencroff/kea-profiler.git"
+  },
+  "keywords": [
+    "profiler"
+  ],
+  "author": "Pencroff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pencroff/kea-profiler/issues"
+  },
+  "homepage": "https://github.com/Pencroff/kea-profiler",
+  "devDependencies": {
+    "chai": "~1.10.0",
+    "del": "^1.1.1",
+    "gitdown": "^1.2.6",
+    "gulp": "~3.8.10",
+    "gulp-6to5": "^3.0.0",
+    "gulp-bench": "^1.1.0",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-mocha": "~2.0.0",
+    "gulp-util": "~3.0.1",
+    "mocha": "~2.0.1"
+  },
+  "engines": {
+    "node": "~0.10.0"
+  }
+}
