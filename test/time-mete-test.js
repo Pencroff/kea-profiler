@@ -5,7 +5,7 @@
 var expect = require('chai').expect,
     path = require('path'),
     root = __dirname,
-    timeMeter = require('../lib/TimeMeter');
+    timeMeter = require('../src/TimeMeter');
 
 describe('Time meter', function () {
     it('should return measure', function (done) {

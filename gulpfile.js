@@ -9,6 +9,7 @@ var istanbul = require('gulp-istanbul');
 var benchmark = require('gulp-bench');
 var del = require('del');
 var to5 = require('gulp-6to5');
+var sourcemaps = require("gulp-sourcemaps");
 
 var Gitdown = require('gitdown');
 
@@ -37,13 +38,15 @@ gulp.task('clear::6to5', function (cb) {
 
 gulp.task('6to5', ['clear::6to5'], function () {
     return gulp.src('src/**')
+        .pipe(sourcemaps.init())
         .pipe(to5())
+        .pipe(sourcemaps.write('.', {addComment: false}))
         .pipe(gulp.dest('lib'));
 });
 
 gulp.task('mocha', ['6to5'], function() {
     return gulp.src(['./test/*-test.js'], { read: false })
-        .pipe(mocha({ reporter: 'list' }));
+        .pipe(mocha({ reporter: 'list', compilers:'js:6to5/register' }));
 });
 
 gulp.task('watch-mocha', function() {
@@ -56,7 +59,7 @@ gulp.task('cover', ['clear-coverage'], function (cb) {
         .pipe(istanbul.hookRequire()) // Force `require` to return covered files
         .on('finish', function () {
             gulp.src(['./test/*-test.js'])
-                .pipe(mocha())
+                .pipe(mocha({ compilers:'js:6to5/register' }))
                 .pipe(istanbul.writeReports({reporters: [ 'lcov', 'text', 'text-summary', 'clover' ]})) // Creating the reports after tests runned
                 .on('end', cb)
                 .on('error', gutil.log);
