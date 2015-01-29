@@ -4,7 +4,6 @@
 
 export default class TimeMeter {
     static getMeasure() {
-        throw new Error('Error description', 'TimeMeter');
-        return [1, 3, 4];
+        return [1, 3];
     }
 }

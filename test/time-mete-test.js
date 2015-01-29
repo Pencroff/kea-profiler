@@ -2,10 +2,11 @@
  * Created by Pencroff on 28/01/2015.
  */
 
-var expect = require('chai').expect,
+var env = process.env.Not_Gulp_Env ? 'src' : 'lib',
+    expect = require('chai').expect,
     path = require('path'),
     root = __dirname,
-    timeMeter = require('../src/TimeMeter');
+    timeMeter = require('../' + env + '/TimeMeter');
 
 describe('Time meter', function () {
     it('should return measure', function (done) {

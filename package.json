@@ -4,7 +4,7 @@
   "description": "Profiler for node.js based on ES6",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --bail --ui bdd --compilers js:6to5/register --reporter spec -- test/*-test.js"
+    "test": "mocha --bail --ui bdd --compilers js:6to5/register --reporter spec,node_modules/mocha-istanbul -- test/*-test.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "gulp-mocha": "~2.0.0",
     "gulp-sourcemaps": "^1.3.0",
     "gulp-util": "~3.0.1",
+    "isparta": "git://github.com/douglasduteil/isparta",
     "mocha": "~2.0.1"
   },
   "engines": {

@@ -54,12 +54,12 @@ gulp.task('watch-mocha', function() {
 });
 
 gulp.task('cover', ['clear-coverage'], function (cb) {
-    gulp.src(['src/*.js'])
+    gulp.src(['lib/*.js'])
         .pipe(istanbul()) // Covering files
         .pipe(istanbul.hookRequire()) // Force `require` to return covered files
         .on('finish', function () {
             gulp.src(['./test/*-test.js'])
-                .pipe(mocha({ compilers:'js:6to5/register' }))
+                .pipe(mocha())
                 .pipe(istanbul.writeReports({reporters: [ 'lcov', 'text', 'text-summary', 'clover' ]})) // Creating the reports after tests runned
                 .on('end', cb)
                 .on('error', gutil.log);
