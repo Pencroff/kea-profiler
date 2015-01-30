@@ -3,8 +3,10 @@
  */
 
 export default class StopWatch {
-    constructor (timeMeter, storages) {
-        this.timeMeater = timeMeter;
+    constructor (flowName, deps) {
+        this.flowName = flowName;
+        this.timemeter = deps.timemeter;
+        this.storage = deps.storage;
     }
 
     start () {

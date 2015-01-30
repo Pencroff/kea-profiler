@@ -19,9 +19,9 @@ describe('Time meter', function () {
         setTimeout(function () {
             end = timeMeter.getMeasure();
             delta = timeMeter.calculateDelta(start, end);
-            expect(delta).to.be.at.least(100);
+            expect(delta).to.be.at.least(25);
             done();
-        }, 100);
+        }, 25);
         expect(timeMeter.calculateDelta([100, 0], [101, 101457000])).to.be.within(1101.456, 1101.457);
     });
     it('should calculate delta from integer value', function (done) {
